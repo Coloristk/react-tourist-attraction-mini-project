@@ -37,6 +37,7 @@ export const BlogCard = ({
           {tags.map((tag, index) => (
             <span
               key={index}
+              /* เพิ่ม onclick เพื่อเพิ่ม tag เข้าไปใน input */
               onClick={() => addTagToInput(tag)}
               className="text-sm text-sky-600 border border-sky-600 rounded-full px-2 py-1 cursor-pointer"
             >
@@ -54,7 +55,7 @@ export const BlogCard = ({
             />
           ))}
           <Link
-            className="w-16 h-16 border border-sky-400 text-sky-400 rounded-full ml-60 mt-10 cursor-pointer"
+            className="hidden md:block w-14 h-14 border-2 border-sky-400 text-sky-400 rounded-full ml-60 mt-10 p-2 cursor-pointer"
             onClick={handleCopyClick}
           />
         </div>

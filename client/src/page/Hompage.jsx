@@ -9,7 +9,7 @@ function Homepage() {
   const handleInput = (e) => {
     setInputText(e.target.value);
   };
-
+  /* เพิ่ม tag เข้าไปใน input */
   const addTagToInput = (tag) => {
     setInputText((prev) => `${prev} ${tag}`.trim());
   };
