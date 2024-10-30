@@ -4,7 +4,7 @@ import { BlogCard } from "../components/Blogcard";
 
 function Homepage() {
   const [input, setInputText] = useState("");
-  const [search, setSearch] = useState([]);
+  const [blogcard, setBlogCard] = useState([]);
 
   const handleInput = (e) => {
     setInputText(e.target.value);
@@ -15,7 +15,7 @@ function Homepage() {
       const response = await axios.get(
         `http://localhost:4001/trips?keywords=${input}`
       );
-      setSearch(response.data.data);
+      setBlogCard(response.data.data);
     } catch (error) {
       console.log(error);
     }
@@ -29,13 +29,14 @@ function Homepage() {
 
   return (
     <main
-      className="mt-36"
+      className="mt-36 md:m-auto w-full md:max-w-screen-2xl"
       style={{ fontFamily: "IBM Plex Sans Thai, sans-serif" }}
     >
       <h1 className="flex justify-center items-center text-7xl text-sky-400 font-semibold mb-10">
         เที่ยวไหนดี
       </h1>
       <h3 className="pl-10 md:pl-60">ค้นหาที่เที่ยว</h3>
+      {/* Input Search */}
       <div className="w-3/4 mx-auto mt-2">
         <div className="flex justify-center items-center border-b">
           <input
@@ -47,9 +48,10 @@ function Homepage() {
           />
         </div>
       </div>
+      {/* Render BlogCard */}
       <div className="mt-8">
-        {search.length > 0
-          ? search.map((item, index) => (
+        {blogcard.length > 0
+          ? blogcard.map((item, index) => (
               <BlogCard
                 key={index}
                 title={item.title}
