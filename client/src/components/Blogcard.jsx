@@ -1,5 +1,12 @@
 import { Link } from "lucide-react";
-export const BlogCard = ({ description, photos, title, url, tags }) => {
+export const BlogCard = ({
+  description,
+  photos,
+  title,
+  url,
+  tags,
+  addTagToInput,
+}) => {
   const handleCopyClick = () => {
     navigator.clipboard.writeText(url);
   };
@@ -30,7 +37,8 @@ export const BlogCard = ({ description, photos, title, url, tags }) => {
           {tags.map((tag, index) => (
             <span
               key={index}
-              className="text-sm text-sky-600 border border-sky-600 rounded-full px-2 py-1"
+              onClick={() => addTagToInput(tag)}
+              className="text-sm text-sky-600 border border-sky-600 rounded-full px-2 py-1 cursor-pointer"
             >
               {tag}
             </span>

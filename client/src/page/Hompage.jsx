@@ -10,6 +10,10 @@ function Homepage() {
     setInputText(e.target.value);
   };
 
+  const addTagToInput = (tag) => {
+    setInputText((prev) => `${prev} ${tag}`.trim());
+  };
+
   const fetchdata = async () => {
     try {
       const response = await axios.get(
@@ -59,6 +63,7 @@ function Homepage() {
                 tags={item.tags}
                 photos={item.photos}
                 url={item.url}
+                addTagToInput={addTagToInput}
               />
             ))
           : null}
