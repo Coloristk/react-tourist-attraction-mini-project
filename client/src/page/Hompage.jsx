@@ -33,7 +33,7 @@ function Homepage() {
 
   return (
     <main
-      className="mt-36 md:m-auto w-full md:max-w-screen-2xl"
+      className="mt-36 md:mx-auto w-full md:max-w-screen-2xl"
       style={{ fontFamily: "IBM Plex Sans Thai, sans-serif" }}
     >
       <h1 className="flex justify-center items-center text-7xl text-sky-400 font-semibold mb-10">
